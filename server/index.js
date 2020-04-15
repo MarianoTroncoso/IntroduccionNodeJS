@@ -5,6 +5,9 @@ const express = require('express');
 const path = require('path');
 // importar archivo con las rutas
 const routes = require('./routes');
+
+const configs = require('./config');
+
  
 // configurar express
 const app = express();
@@ -17,6 +20,11 @@ app.set('views', path.join(__dirname, './views'));
 
 // cargar una carpeta estatica llamada public
 app.use(express.static('public'));
+
+// validar si estamos en desarrollo o production
+const config = configs[app.get('env')];
+// creamos la variable para el sitio web
+app.locals.titulo = config.nombresitio
 
 // muestra el año actual 
 app.use((req, res, next) => {
