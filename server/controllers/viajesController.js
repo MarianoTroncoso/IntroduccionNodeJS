@@ -1,19 +1,17 @@
 const Viaje = require('../models/Viajes');
 
-exports.mostrarViajes = (req, res) => {
-    Viaje.findAll()
-        .then(viajes => res.render('viajes', {
-            pagina: 'Proximos Viajes',
-            viajes
-        }))
-        .catch(error => console.log(error))
+exports.mostrarViajes = async (req, res) => {
+    const viajes = await Viaje.findAll()
+    res.render('viajes', {
+        pagina: 'Proximos Viajes',
+        viajes
+    })
  };
 
- exports.mostrarViaje = (req, res) => {
-    // leer url
-    Viaje.findByPk(req.params.id)
-        .then(viaje => res.render('viaje',{
+ exports.mostrarViaje = async (req, res) => {
+        // leer url
+        const viaje = await Viaje.findByPk(req.params.id)
+        res.render('viaje',{
             viaje
-        }))
-        .catch(error => console.log(error))
- }
+        })
+     }

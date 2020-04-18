@@ -1,15 +1,15 @@
 const Testimonial = require('../models/Testimoniales');
 
-exports.mostrarTestimoniales = (req, res) => {
-    Testimonial.findAll()
-        .then(testimoniales => res.render('testimoniales', {
-            pagina: 'Testimoniales',
-            testimoniales
-        }))
+exports.mostrarTestimoniales = async (req, res) => {
+    const testimoniales = await Testimonial.findAll()
+    res.render('testimoniales', {
+        pagina: 'Testimoniales',
+        testimoniales
+    })
  };
 
 
- exports.agregarTestimonial = (req, res) => {
+ exports.agregarTestimonial = async (req, res) => {
     // console.log(req.body)
     // validar que los campos esten llenos
     let {nombre, correo, mensaje} = req.body;
@@ -27,6 +27,7 @@ exports.mostrarTestimoniales = (req, res) => {
     // revisar por errores
     if(errores.length > 0){
         // muestra la vista con errores
+        const testimoniales = await Testimonial.findAll();
         res.render('testimoniales', {
             errores,
             nombre,
