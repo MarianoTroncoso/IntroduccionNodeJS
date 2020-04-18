@@ -1,6 +1,7 @@
  
 // importar express
 const express = require('express');
+
 // acceder al file system 
 const path = require('path');
 // importar archivo con las rutas

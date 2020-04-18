@@ -13,7 +13,7 @@ const Viaje = db.define('viaje', {
     fecha_ida: {
         type: Sequelize.DATE
     },
-    fecha_vuela: {
+    fecha_vuelta: {
         type: Sequelize.DATE
     },
     imagen: {
