@@ -3,6 +3,8 @@ const router = express.Router();
 
 // modelo Viajes
 const Viaje = require('../models/Viajes');
+// modelo Testimoniales 
+const Testimonial = require('../models/Testimoniales');
 
 
 // forma de exportar
@@ -60,9 +62,21 @@ module.exports = function(){
         // revisar por errores
         if(errores.length > 0){
             // muestra la vista con errores
+            res.render('testimoniales', {
+                errores,
+                nombre,
+                correo,
+                mensaje
+            })
 
         } else {
             // almacenar en la BD
+            Testimonial.create({
+                nombre,
+                correo,
+                mensaje
+            }).then(testimonial => res.redirect('/testimoniales'))
+              .catch(error => console.log(error))
         }
     })
 
