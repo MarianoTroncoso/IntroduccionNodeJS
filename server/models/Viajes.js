@@ -3,7 +3,7 @@ const db = require('../config/database');
 
 // definimos el modelo
 const Viaje = db.define('viaje', {
-    // mismo campos de la bd
+    // mismos campos de la bd
     titulo:{
         type: Sequelize.STRING
     },
