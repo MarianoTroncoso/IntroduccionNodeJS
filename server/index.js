@@ -8,6 +8,14 @@ const routes = require('./routes');
 
 const configs = require('./config');
 
+// traigo la contexxion 
+const db = require('./config/database');
+
+// pruebo la conexion
+// db.authenticate()
+//    .then(()=> console.log('bd conectada!'))
+//    .catch(error => console.log(error))
+
  
 // configurar express
 const app = express();
