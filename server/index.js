@@ -6,7 +6,7 @@ const express = require('express');
 const path = require('path');
 
 // para leer datos del formulario de testimoniales ??????
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 
 // importar archivo con las rutas
 const routes = require('./routes');
@@ -21,7 +21,6 @@ const db = require('./config/database');
 //    .then(()=> console.log('bd conectada!'))
 //    .catch(error => console.log(error))
 
- 
 // configurar express
 const app = express();
 
