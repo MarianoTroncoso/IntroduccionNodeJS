@@ -1,45 +1,15 @@
 const express = require('express');
 const router = express.Router();
 
-// modelo Viajes
-const Viaje = require('../models/Viajes');
-// modelo Testimoniales 
-const Testimonial = require('../models/Testimoniales');
-
+// controladores
+const nosotrosController = require('../controllers/nosotrosController');
+const homeController = require('../controllers/homeController');
 
 // forma de exportar
 module.exports = function(){
-    router.get('/', (req, res) => {
 
-        // como tenemos multiples consultas
-        const promises = [];
-
-        promises.push(Viaje.findAll({
-            limit: 3
-        }));
-
-        promises.push(Testimonial.findAll({
-            limit: 3
-        }));
-
-        // pasar el promise y ejecutarlo
-        const resultado = Promise .all(promises)
-
-        
-        resultado.then(resultado => res.render('index', {
-            pagina: 'Proximos Viajes',
-            clase: 'home',
-            viajes: resultado[0],
-            testimoniales: resultado[1]
-        }))
-        .catch(error => console.log(error))
-     });
-     
-    router.get('/nosotros', (req, res) => {
-        res.render('nosotros', {
-            pagina: 'Sobre Nosotros'
-        });
-     });
+    router.get('/', homeController.consultasHomepage);
+    router.get('/nosotros', nosotrosController.infoNosotros);
     
     router.get('/viajes', (req, res) => {
         Viaje.findAll()

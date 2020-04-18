@@ -28,4 +28,5 @@ const Viaje = db.define('viaje', {
 
 });
 
+// export default
 module.exports = Viaje;
