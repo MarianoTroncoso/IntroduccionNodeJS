@@ -4,6 +4,10 @@ const express = require('express');
 
 // acceder al file system 
 const path = require('path');
+
+// para leer datos del formulario de testimoniales ??????
+const bodyParser = require('body-parser')
+
 // importar archivo con las rutas
 const routes = require('./routes');
 
@@ -42,7 +46,11 @@ app.use((req, res, next) => {
    res.locals.fechaActual = fecha.getFullYear();
    // para que continue ejecutando la proxima funcion
    return next();
-})
+});
+
+
+// ejecutamos el body parser
+app.use(bodyParser.urlencoded({extended: true}))
 
 // cargar rutas
 app.use('/', routes() )
