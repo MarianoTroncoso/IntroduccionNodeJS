@@ -17,7 +17,7 @@ module.exports = function(){
         });
      });
     
-     router.get('/viajes', (req, res) => {
+    router.get('/viajes', (req, res) => {
         Viaje.findAll()
             .then(viajes => res.render('viajes', {
                 pagina: 'Proximos Viajes',
@@ -26,13 +26,19 @@ module.exports = function(){
             .catch(error => console.log(error))
      });
 
-     router.get('/viajes/:id', (req, res) => {
+    router.get('/viajes/:id', (req, res) => {
         // leer url
         Viaje.findByPk(req.params.id)
             .then(viaje => res.render('viaje',{
                 viaje
             }))
             .catch(error => console.log(error))
+     });
+
+    router.get('/testimoniales', (req, res) => {
+        res.render('testimoniales', {
+            pagina: 'Testimoniales'
+        });
      });
 
     return router;
