@@ -1,0 +1,31 @@
+QUE APRENDIMOS?
+
+tenemos 2 carpetas:
+public y server 
+
+server
+el archivo de configuracion es el index.js, donde le decimos que:
+- vamos a usar express 
+- la carpeta de las vistas 
+- la carpeta del public 
+- podemos crear variables locales que podemos pasar a archivos y templates
+- hacemos uso del "return next", para que continue con las proximas instrucciones, 
+solo es necesario en algunos archivos
+- definimos las rutas 
+
+este proyecto esta hecho con un MVC
+MVC = Model View Controller 
+porque tenemos los modelos, las vistas y los controladores 
+es muy usado para tener mas separacion y orden
+
+nuestro modelo muestra informacion desde una base de datos 
+la descripcion de esa base de datos va a en los modelos 
+los modelos son los encargados de estar contectados con la base de datos
+
+rutas o routes 
+las rutas tienen diferentes endpoints 
+lo que me dice que se va a ver en pantalla son las vistas 
+y lo que le dice a la vista que quiere mostrar es el controller
+y el controller obtiene los datos desde el modelo 
+lo que esta entre el modelo y la vista es el controlador 
+el controlador toma datos del modelo y se los pasa a la vista 
