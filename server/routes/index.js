@@ -10,7 +10,9 @@ const Testimonial = require('../models/Testimoniales');
 // forma de exportar
 module.exports = function(){
     router.get('/', (req, res) => {
-        res.render('index');
+        res.render('index', {
+            clase: 'home'
+        });
      });
      
     router.get('/nosotros', (req, res) => {
@@ -38,9 +40,11 @@ module.exports = function(){
      });
 
     router.get('/testimoniales', (req, res) => {
-        res.render('testimoniales', {
-            pagina: 'Testimoniales'
-        });
+        Testimonial.findAll()
+            .then(testimoniales => res.render('testimoniales', {
+                pagina: 'Testimoniales',
+                testimoniales
+            }))
      });
     
     // cuando llenamos el formulario
