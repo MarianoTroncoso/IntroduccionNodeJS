@@ -11,7 +11,7 @@ el archivo de configuracion es el index.js, donde le decimos que:
 - podemos crear variables locales que podemos pasar a archivos y templates
 - hacemos uso del "return next", para que continue con las proximas instrucciones, 
 solo es necesario en algunos archivos
-- definimos las rutas 
+- y definimos las rutas 
 
 este proyecto esta hecho con un MVC
 MVC = Model View Controller 
